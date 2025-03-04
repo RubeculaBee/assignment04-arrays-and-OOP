@@ -27,4 +27,17 @@ public class Array_2D_SingleDataType_RobinLane
                         {'Y', 'Z'},
                 };
     }
+
+    static String charArrayToString(char[] charArray, int spaceWidth)
+    {
+        String formattedString = "";
+
+        for(char c : charArray)
+        {
+            formattedString += c;
+            formattedString += " ".repeat(spaceWidth);
+        }
+
+        return formattedString;
+    }
 }
