@@ -1,10 +1,15 @@
 public class Array_2D_SingleDataType_RobinLane
 {
+    static char[][] alphabetNormal; //Standard array with 7 rows, each row with 7 columns
+    static char[][] alphabetJagged; //Jagged array with 7 rows, each row with varied columns
+
     public static void main(String[] args)
     {
-        char[][] alphabetNormal; //Standard array with 7 rows, each row with 7 columns
-        char[][] alphabetJagged; //Jagged array with 7 rows, each row with varied columns
+        initArrays();
+    }
 
+    static void initArrays()
+    {
         alphabetNormal = new char[][] //Spaces used as padding to keep the array uniform
                 {
                         {'A', 'B', 'C', 'D', 'E', 'F', 'G'},
