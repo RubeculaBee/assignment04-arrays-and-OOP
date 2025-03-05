@@ -48,16 +48,34 @@ public class Array_2D_SingleDataType_RobinLane
                 };
     }
 
+    // Takes a 2D array and prints it's content to the screen with 3-width spacing between each entry
+    static void print2DCharArray(char[][] charArray2D)
+    {
+        String[] stringArray = new String[charArray2D.length];
+
+        System.out.println("Displaying contents in any 2D arrays:");
+
+        for(int i = 0; i < charArray2D.length; i++) // Loops through the 2D array, converting each sub-array to a string
+        {
+            stringArray[i] = charArrayToString(charArray2D[i]);
+        }
+
+        for (String str : stringArray) // Loops through each string and prints it to screen, centered right.
+        {
+            System.out.printf("%28s\n",str);
+        }
+    }
+
     /* Takes an array of characters and returns a string of those characters with an amount of
        spaces between each letter equal to spaceWidth */
-    static String charArrayToString(char[] charArray, int spaceWidth)
+    static String charArrayToString(char[] charArray)
     {
         String formattedString = "";
 
         for(char c : charArray)
         {
             formattedString += c;
-            formattedString += " ".repeat(spaceWidth);
+            formattedString += "   "; // Each character in the formatted string is seperated by 3 spaces.
         }
 
         return formattedString;
