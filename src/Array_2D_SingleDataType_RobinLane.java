@@ -20,6 +20,10 @@ public class Array_2D_SingleDataType_RobinLane
     public static void main(String[] args)
     {
         initArrays();
+
+        print2DCharArray(alphabetNormal);
+        System.out.print("\n");
+        print2DCharArray(alphabetJagged);
     }
 
     // Method initializes both 2D arrays. Seperated into its own method for readability
