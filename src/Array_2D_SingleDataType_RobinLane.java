@@ -14,8 +14,8 @@
 
 public class Array_2D_SingleDataType_RobinLane
 {
-    static char[][] alphabetNormal; //Standard array with 7 rows, each row with 7 columns
-    static char[][] alphabetJagged; //Jagged array with 7 rows, each row with varied columns
+    static char[][] alphabetNormal = new char[7][7]; //Standard array with 7 rows, each row with 7 columns
+    static char[][] alphabetJagged = new char[7][]; //Jagged array with 7 rows, each row with varied columns
 
     public static void main(String[] args)
     {
@@ -29,7 +29,9 @@ public class Array_2D_SingleDataType_RobinLane
     // Method initializes both 2D arrays. Seperated into its own method for readability
     static void initArrays()
     {
-        alphabetNormal = new char[][] //Spaces used as padding to keep the array uniform
+        //Initialised using the shorthand method
+        //Spaces used as padding to keep the array uniform
+        alphabetNormal = new char[][]
                 {
                         {'A', 'B', 'C', 'D', 'E', 'F', 'G'},
                         {' ', ' ', ' ', 'H', 'I', 'J', 'K'},
@@ -40,16 +42,15 @@ public class Array_2D_SingleDataType_RobinLane
                         {' ', ' ', ' ', ' ', ' ', 'Y', 'Z'},
                 };
 
-        alphabetJagged = new char[][] //Sub-arrays of different length makes this 2D array jagged
-                {
-                        {'A', 'B', 'C', 'D', 'E', 'F', 'G'},
-                        {'H', 'I', 'J', 'K'},
-                        {'L', 'M', 'N', 'O', 'P'},
-                        {'Q', 'R', 'S'},
-                        {'T', 'U', 'V'},
-                        {'W', 'X'},
-                        {'Y', 'Z'},
-                };
+        //Initialised using the multistep method
+        //Sub-arrays of different length makes this 2D array jagged
+        alphabetJagged[0] = new char[] {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+        alphabetJagged[1] = new char[] {'H', 'I', 'J', 'K'};
+        alphabetJagged[2] = new char[] {'L', 'M', 'N', 'O', 'P'};
+        alphabetJagged[3] = new char[] {'Q', 'R', 'S'};
+        alphabetJagged[4] = new char[] {'T', 'U', 'V'};
+        alphabetJagged[5] = new char[] {'W', 'X'};
+        alphabetJagged[6] = new char[] {'Y', 'Z'};
     }
 
     // Takes a 2D array and prints it's content to the screen with 3-width spacing between each entry
