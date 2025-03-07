@@ -28,15 +28,15 @@ public class Array_2D_MultipleDataTypes_RobinLane
         Object[][] array2D = new Object[4][3]; //Initialise 2D array with 4 rows and 3 columns
 
         System.out.printf("%-36s", "Row 1 | Please enter 3 Integers:"); //Sets the first row of Integers
-        for(int i = 0; i < array2D[0].length; i++)
+        for (int i = 0; i < array2D[0].length; i++)
             array2D[0][i] = input.nextInt();
 
         System.out.printf("%-36s", "Row 2 | Please enter 3 Characters:"); //Sets the second row of characters
-        for(int i = 0; i < array2D[1].length; i++)
+        for (int i = 0; i < array2D[1].length; i++)
             array2D[1][i] = input.next().charAt(0);
 
         System.out.printf("%-36s", "Row 3 | Please enter 3 Strings:"); //Sets the third row of strings
-        for(int i = 0; i < array2D[2].length; i++)
+        for (int i = 0; i < array2D[2].length; i++)
             array2D[2][i] = input.next();
 
         System.out.printf("%-36s", "Row 4 | 1 int, 1 char, 1 String:"); //Sets the last row of various types
@@ -58,6 +58,22 @@ public class Array_2D_MultipleDataTypes_RobinLane
             {
                 //left aligned columns of same width
                 System.out.printf("%-30s", obj.getClass().getSimpleName()); //gets the class of an object, then gets the name of that class
+            }
+            System.out.println();
+        }
+    }
+
+    //takes a 2D array of objects and prints a table of each element's value
+    static void displayDataValueTable(Object[][] array2D)
+    {
+        System.out.println("- Data Value Table:");
+        for (Object[] row : array2D)
+        {
+            System.out.printf("%15s", ""); // spaces for alignment
+            for (Object obj : row)
+            {
+                //left aligned columns of same width
+                System.out.printf("%-30s", obj);
             }
             System.out.println();
         }
