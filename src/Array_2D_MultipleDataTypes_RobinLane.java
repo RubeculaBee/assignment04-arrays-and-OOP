@@ -46,4 +46,20 @@ public class Array_2D_MultipleDataTypes_RobinLane
 
         return array2D;
     }
+
+    //takes a 2D array of objects and prints a table of each element's data type
+    static void displayDataTypeTable(Object[][] array2D)
+    {
+        System.out.println("- Data Type View:");
+        for (Object[] row : array2D)
+        {
+            System.out.printf("%15s", ""); // spaces for alignment
+            for (Object obj : row)
+            {
+                //left aligned columns of same width
+                System.out.printf("%-30s", obj.getClass().getSimpleName()); //gets the class of an object, then gets the name of that class
+            }
+            System.out.println();
+        }
+    }
 }
