@@ -11,13 +11,11 @@
  *
  *********************************************************************************/
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Array_2D_MultipleDataTypes_RobinLane
 {
     static Scanner input = new Scanner(System.in);
-    //static Object[][] array2D = new Object[4][3]; // The array in which all input is stored
 
     public static void main(String[] args)
     {
