@@ -20,6 +20,13 @@ public class Array_2D_MultipleDataTypes_RobinLane
     public static void main(String[] args)
     {
         Object[][] array2D = getInput();
+
+        System.out.print("\nYour 2D array of multiple data types:\n\n");
+
+        displayDataTypeTable(array2D);
+        System.out.print("\n");
+
+        displayDataValueTable(array2D);
     }
 
     //Prompts the user for 4 sets of objects, and returns a 2D object array with those inputs.
