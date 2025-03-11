@@ -11,6 +11,7 @@
  *              average growth and height for each month.
  *
  *********************************************************************************/
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GardeningPlanner_RobinLane
@@ -33,6 +34,9 @@ public class GardeningPlanner_RobinLane
     {
         displayWelcome();
         getInput();
+        System.out.print("\n");
+
+        getPlantGrowth();
     }
 
     // Prints the welcome message to the screen
@@ -56,5 +60,20 @@ public class GardeningPlanner_RobinLane
         minRain = input.nextInt();
 
         System.out.println("-".repeat(89));
+    }
+
+    // Initialises each index of the plantGrowth array
+    static void getPlantGrowth()
+    {
+        for(int i = 0; i < avgTemp.length; i++)
+        {
+            // If the temperature of the current month is within the minimum and maximum temperatures
+            if(avgTemp[i] <= maxTemp && avgTemp[i] >= minTemp)
+                // Then the growth of that month is the difference between that months rainfall and the minimum required
+                plantGrowth[i] = avgRain[i] - minRain;
+            else
+                // Otherwise the growth is -1
+                plantGrowth[i] = -1;
+        }
     }
 }
