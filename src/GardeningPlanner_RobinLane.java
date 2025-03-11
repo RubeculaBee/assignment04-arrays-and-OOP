@@ -22,7 +22,7 @@ public class GardeningPlanner_RobinLane
 
     static int maxTemp; // Maximum temperature the plant can be in and still grow
     static int minTemp; // Minimum temperature the plant can be in and still grow
-    static int minRain; // Minimum rainfall the plant need sto grow
+    static int minRain; // Minimum rainfall the plant needs to grow
 
     /* The following arrays will be the same length as the given avgTemp array, since the length of that array
        determines how many years of plant growth we will be tracking */
