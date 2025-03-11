@@ -15,8 +15,6 @@ import java.util.Scanner;
 
 public class GardeningPlanner_RobinLane
 {
-    static Scanner input = new Scanner(System.in);
-
     static int[] avgTemp = {46, 48, 49, 50, 51, 53, 54, 55, 56, 55, 51, 47}; // The average temperature for each month
     static int[] avgRain = {5, 3, 3, 1, 1, 0, 0, 0, 0, 1, 3, 4}; // The average rainfall for each month
 
@@ -52,6 +50,8 @@ public class GardeningPlanner_RobinLane
     // Gets information about the plant from the user
     static void getInput()
     {
+        Scanner input = new Scanner(System.in);
+
         System.out.print("- Enter minimum temperature for plant: ");
         minTemp = input.nextInt();
 
