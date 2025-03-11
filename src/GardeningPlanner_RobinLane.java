@@ -27,6 +27,8 @@ public class GardeningPlanner_RobinLane
     static int[] plantGrowth = new int[avgTemp.length]; // How much the plant has grown each month
     static int[] plantHeight = new int[avgTemp.length]; // THe height of the plant for each month
 
+    static int maxHeight = 0; // The largest height the plant reached in the year
+
     public static void main(String[] args)
     {
         displayWelcome();
@@ -90,6 +92,8 @@ public class GardeningPlanner_RobinLane
             height = Math.max(0, height + plantGrowth[i]);
 
             plantHeight[i] = height;
+
+            maxHeight = Math.max(maxHeight, height); // if current height is largest, set maxHeight to current height
         }
     }
 
@@ -105,7 +109,9 @@ public class GardeningPlanner_RobinLane
 
         for(int i=0; i<avgTemp.length; i++)
             // Format string for plant growth contains a + sign, so that the sign of the value is always printed
-            System.out.printf("%-14d %-14s %-14d %-14d %+-14d %-14d\n", i, months[i], avgTemp[i], avgRain[i], plantGrowth[i], plantHeight[i]);
+            // Format string for plant height has width 4 to make room for MAX label
+            System.out.printf("%-14d %-14s %-14d %-14d %+-14d %-4d %-7s\n"
+                    , i, months[i], avgTemp[i], avgRain[i], plantGrowth[i], plantHeight[i], plantHeight[i] == maxHeight? "\033[103;30mMAX\033[0m" : "");
 
         System.out.println(("-".repeat(14) + " ").repeat(6));
     }
