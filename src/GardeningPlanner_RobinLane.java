@@ -37,6 +37,8 @@ public class GardeningPlanner_RobinLane
 
         getPlantGrowth();
         getPlantHeight();
+
+        displayGrowthChart();
     }
 
     // Prints the welcome message to the screen
@@ -89,5 +91,22 @@ public class GardeningPlanner_RobinLane
 
             plantHeight[i] = height;
         }
+    }
+
+    // Prints a chart to the screen containing the index, month, temperature, rain, growth, and height of the plant.
+    static void displayGrowthChart()
+    {
+        // Months of the year in order
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
+        System.out.println(("-".repeat(14) + " ").repeat(6)); // Prints 6 sets of 14 hyphens each seperated by a space
+        // Each column is left aligned
+        System.out.printf("%-14s %-14s %-14s %-14s %-14s %-14s\n", "INDEX", "MONTH", "TEMPERATURE", "RAINFALL", "PLANT GROWTH", "PLANT HEIGHT");
+
+        for(int i=0; i<avgTemp.length; i++)
+            // Format string for plant growth contains a + sign, so that the sign of the value is always printed
+            System.out.printf("%-14d %-14s %-14d %-14d %+-14d %-14d\n", i, months[i], avgTemp[i], avgRain[i], plantGrowth[i], plantHeight[i]);
+
+        System.out.println(("-".repeat(14) + " ").repeat(6));
     }
 }
