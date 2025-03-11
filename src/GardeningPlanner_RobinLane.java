@@ -24,6 +24,11 @@ public class GardeningPlanner_RobinLane
     static int minTemp; // Minimum temperature the plant can be in and still grow
     static int minRain; // Minimum rainfall the plant need sto grow
 
+    /* The following arrays will be the same length as the given avgTemp array, since the length of that array
+       determines how many years of plant growth we will be tracking */
+    static int[] plantGrowth = new int[avgTemp.length]; // How much the plant has grown each month
+    static int[] plantHeight = new int[avgTemp.length]; // THe height of the plant for each month
+
     public static void main(String[] args)
     {
         displayWelcome();
