@@ -37,6 +37,7 @@ public class GardeningPlanner_RobinLane
         System.out.print("\n");
 
         getPlantGrowth();
+        getPlantHeight();
     }
 
     // Prints the welcome message to the screen
@@ -74,6 +75,20 @@ public class GardeningPlanner_RobinLane
             else
                 // Otherwise the growth is -1
                 plantGrowth[i] = -1;
+        }
+    }
+
+    // Initialises each index of the plantHeight array
+    static void getPlantHeight()
+    {
+        int height = 0; // height starts at 0
+
+        for(int i = 0; i < plantGrowth.length; i++)
+        {
+            // current height gets incremented by the current plantGrowth, but only if that sum is greater than 0
+            height = Math.max(0, height + plantGrowth[i]);
+
+            plantHeight[i] = height;
         }
     }
 }
