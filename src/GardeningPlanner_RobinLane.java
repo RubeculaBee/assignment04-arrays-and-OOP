@@ -14,6 +14,9 @@
 
 public class GardeningPlanner_RobinLane
 {
+    static int[] avgTemp = {46, 48, 49, 50, 51, 53, 54, 55, 56, 55, 51, 47};
+    static int[] avgRain = {5, 3, 3, 1, 1, 0, 0, 0, 0, 1, 3, 4};
+
     public static void main(String[] args)
     {
 
