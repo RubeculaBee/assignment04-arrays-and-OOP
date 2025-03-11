@@ -11,7 +11,6 @@
  *              average growth and height for each month.
  *
  *********************************************************************************/
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GardeningPlanner_RobinLane
