@@ -19,6 +19,13 @@ public class GardeningPlanner_RobinLane
 
     public static void main(String[] args)
     {
+        displayWelcome();
+    }
 
+    static void displayWelcome()
+    {
+        System.out.println("-".repeat(89));
+        System.out.println("Welcome to the CSC 215 Gardening Planner!");
+        System.out.println("-".repeat(89));
     }
 }
