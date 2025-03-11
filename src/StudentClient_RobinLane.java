@@ -39,9 +39,10 @@ public class StudentClient_RobinLane {
     {
         Scanner input = new Scanner(System.in);
 
-        System.out.printf("Enter a name for student #%d: ", index);
+        System.out.printf("- Enter a name for student #%d: ", index);
         student.setName(input.nextLine());
-        System.out.printf("Enter a GPA for student #%d: ", index);
+        System.out.printf("- Enter a GPA for student #%d: ", index);
         student.setGpa(input.nextDouble());
+        System.out.print("\n");
     }
 }
