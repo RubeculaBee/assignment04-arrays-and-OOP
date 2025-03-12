@@ -16,8 +16,13 @@ public class StudentClient_RobinLane {
 
         Student[] students = initStudents(3);
 
+        System.out.printf("[+] Creating %d students...\n", students.length);
         for(int i = 0; i < students.length; i++)
             getStudentInfo(students[i], i+1);
+
+        System.out.printf("[+] The %d students created:\n", students.length);
+        for(Student student : students)
+            System.out.println(student);
     }
 
     // Initialises and returns an array of students of the specified size, each student having no data.
