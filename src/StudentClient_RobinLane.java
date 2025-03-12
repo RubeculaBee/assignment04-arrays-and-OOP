@@ -50,4 +50,14 @@ public class StudentClient_RobinLane {
         student.setGpa(input.nextDouble());
         System.out.print("\n");
     }
+
+    // Searches through a given student array. If the given student name is found in the array, return that student.
+    static Student findStudent(Student[] students, String name)
+    {
+        for (Student student : students)
+            if(student.getName().equalsIgnoreCase(name))
+                return student;
+
+        return null; // If the given name isn't found, return null.
+    }
 }
