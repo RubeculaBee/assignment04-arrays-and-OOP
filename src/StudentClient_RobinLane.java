@@ -14,6 +14,8 @@ public class StudentClient_RobinLane {
 
         // Please add code to complete this program
 
+        Scanner input = new Scanner(System.in);
+
         Student[] students = initStudents(3);
 
         System.out.printf("[+] Creating %d students...\n", students.length);
@@ -23,6 +25,9 @@ public class StudentClient_RobinLane {
         System.out.printf("[+] The %d students created:\n", students.length);
         for(Student student : students)
             System.out.println(student);
+
+        System.out.print("\n[-] Enter a student's full name to update the student: ");
+        updateStudent(findStudent(students, input.nextLine()));
     }
 
     // Initialises and returns an array of students of the specified size, each student having no data.
@@ -59,5 +64,19 @@ public class StudentClient_RobinLane {
                 return student;
 
         return null; // If the given name isn't found, return null.
+    }
+
+    // Takes a student and updates their name and gpa based on user input
+    static void updateStudent(Student student)
+    {
+        if(student == null) // If given a null student, exit the method without doing anything
+            return;
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("[-] Enter new student name: ");
+        student.setName(input.nextLine());
+        System.out.print("[-] Enter new student gpa: ");
+        student.setGpa(input.nextDouble());
     }
 }
