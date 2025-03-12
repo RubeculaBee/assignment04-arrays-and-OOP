@@ -18,7 +18,7 @@ public class StudentClient_RobinLane {
 
         System.out.printf("[+] Creating %d students...\n", students.length);
         for(int i = 0; i < students.length; i++)
-            getStudentInfo(students[i], i+1);
+            addStudentInfo(students[i], i+1);
 
         System.out.printf("[+] The %d students created:\n", students.length);
         for(Student student : students)
@@ -40,7 +40,7 @@ public class StudentClient_RobinLane {
 
     // For a given student, set their name and gpa based on information given by the user
     // The integer 'index' is used solely by the prompt so that each student is referred to by a number
-    static void getStudentInfo(Student student, int index)
+    static void addStudentInfo(Student student, int index)
     {
         Scanner input = new Scanner(System.in);
 
