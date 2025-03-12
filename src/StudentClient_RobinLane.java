@@ -28,6 +28,10 @@ public class StudentClient_RobinLane {
 
         System.out.print("\n[-] Enter a student's full name to update the student: ");
         updateStudent(findStudent(students, input.nextLine()));
+
+        System.out.printf("\n[+] The %d students updated:\n", students.length);
+        for(Student student : students)
+            System.out.println(student);
     }
 
     // Initialises and returns an array of students of the specified size, each student having no data.
