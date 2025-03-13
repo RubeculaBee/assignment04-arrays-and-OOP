@@ -4,8 +4,13 @@
  * 
  * Class:       StudentClient
  * File Name:   StudentClient.java
+ * Description: Creates 3 students and prompts the user to give each student a name and GPA.
+ *              Then, after displaying each student, asks the user to select a student to edit.
+ *              The user will type the name of the student they want to edit, as well as the
+ *              updated information they want the student to have. Then the program will again
+ *              print each students information
  *
- * @author Duc Ta
+ * @author Duc Ta, Robin Lane
  */
 import java.util.Scanner;
 public class StudentClient_RobinLane {
