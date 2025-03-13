@@ -12,6 +12,7 @@
  *********************************************************************/
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DegreePlanner_3DArray_RobinLane
 {
@@ -22,17 +23,31 @@ public class DegreePlanner_3DArray_RobinLane
         String[] semester03 = {"csc301", "csc302", "csc303", "csc304", "csc305", "csc306"};
         String[] semester04 = {"csc401", "csc402", "csc403", "csc404", "csc405", "csc406"};
 
-        //String[][][] classes;
+        String[][][] classes = load3DArray(semester01, semester02, semester03, semester04);
     }
 
-    /*
-    static String[][][] load3DArray(String[][] arrays)
+    static String[][][] load3DArray(String[]... arrays)
     {
         String[][][] array3D = new String[arrays.length][][];
 
+        ArrayList<Integer> factors;
 
+        for(int i = 0; i < array3D.length; i++)
+        {
+            factors = getSmallestFactors(arrays[i].length, 2);
+            array3D[i] = new String[factors.get(1)][factors.get(0)];
+
+            for(int j = 0; j < array3D[i].length; j++)
+            {
+                for(int k = 0; k < array3D[i][j].length; k++)
+                {
+                    array3D[i][j][k] = arrays[i][(j*array3D[i][j].length)+k];
+                }
+            }
+        }
+
+        return array3D;
     }
-    */
 
     static ArrayList<Integer> getSmallestFactors(int n, int numFactors)
     {
