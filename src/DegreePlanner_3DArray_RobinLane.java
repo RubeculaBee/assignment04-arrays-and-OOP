@@ -31,12 +31,12 @@ public class DegreePlanner_3DArray_RobinLane
     // Prints a given 3D array to the console with each line labeled with the given context
     static void display3DArray(Object[][][] array3D, String context)
     {
-        // Shorthand variables x y and z defined solely for ease of reading line 36
-        int x = array3D.length, y = array3D[0].length, z = array3D[0][0].length;
+        // Get the largest size of each dimension, for use in the following print call
+        int[] dim = getLargestDimensions(array3D);
         /* Tells the user information about the 3D array that is about to be printed,
            including the type of array, the length of each dimension of the array,
            and the total amount of items stored in the array */
-        System.out.printf("Printing data... from one 3D %s[%d][%d][%d] array containing %d items:\n", (array3D.getClass().getSimpleName() + "\b".repeat(6)), x, y, z, x*y*z);
+        System.out.printf("Printing data... from one 3D %s[%d][%d][%d] array containing [n] items:\n", (array3D.getClass().getSimpleName() + "\b".repeat(6)), dim[0], dim[1], dim[2]);
 
         for(int i = 0; i < array3D.length; i++) // For each 2D array
         {
@@ -47,6 +47,25 @@ public class DegreePlanner_3DArray_RobinLane
                     System.out.printf("%s%s ", array3D[i][j][k], ((j+1 == array3D[i].length) && (k+1 == array3D[i][j].length)) ? "" : ",");
             System.out.println(); // Go to next line for next 2D array
         }
+    }
+
+    // Returns the largest size for each dimension in a 3D array
+    static int[] getLargestDimensions(Object[][][] array3D)
+    {
+        int[] dimensions = new int[3];
+
+        // The first dimension will always be the size of the 3D array
+        dimensions[0] = array3D.length;
+
+        for(Object[][] array2D : array3D) // For each 2D array
+        {
+            dimensions[1] = Math.max(array2D.length, dimensions[1]); // The second dimension will be the largest of each 2D array
+
+            for(Object[] array : array2D) // For each 1D array
+                dimensions[2] = Math.max(array.length, dimensions[2]); // The third dimension will be the largest of each 1D array
+        }
+
+        return dimensions;
     }
 
     // Takes some number of given arrays and returns a 3D array that stores the contents of the given arrays
