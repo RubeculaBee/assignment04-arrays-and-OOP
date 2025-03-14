@@ -32,7 +32,7 @@ public class DegreePlanner_3DArray_RobinLane
     static void display3DArray(Object[][][] array3D, String context)
     {
         // Get the largest size of each dimension, for use in the following print call
-        int[] dim = getLargestDimensions(array3D);
+        int[] dim = getLargestDimensions3D(array3D);
         /* Tells the user information about the 3D array that is about to be printed,
            including the type of array, the length of each dimension of the array,
            and the total amount of items stored in the array */
@@ -50,7 +50,7 @@ public class DegreePlanner_3DArray_RobinLane
     }
 
     // Returns the largest size for each dimension in a 3D array
-    static int[] getLargestDimensions(Object[][][] array3D)
+    static int[] getLargestDimensions3D(Object[][][] array3D)
     {
         int[] dimensions = new int[3];
 
