@@ -20,7 +20,7 @@ public class DegreePlanner_3DArray_RobinLane
         String[] semester03 = {"csc301", "csc302", "csc303", "csc304", "csc305", "csc306"};
         String[] semester04 = {"csc401", "csc402", "csc403", "csc404", "csc405", "csc406"};
 
-        String[][][] classes = load3DArray(semester01, semester02, semester03, semester04);
+        Object[][][] classes = load3DArray(semester01, semester02, semester03, semester04);
 
         display3DArray(classes, "Semester");
     }
@@ -86,10 +86,10 @@ public class DegreePlanner_3DArray_RobinLane
        The length of each 2D array stored in the 3D array, as well as each 1D array stored in each 2D array,
        is proportional to the length of each given array. For example, if the method is given
        an array of size 6, than it will be split into a 2D array of size 3 storing 1D arrays each of size 2 */
-    static String[][][] load3DArray(String[]... givenArrays)
+    static Object[][][] load3DArray(Object[]... givenArrays)
     {
         // The amount of 2D arrays is set to the amount of given arrays
-        String[][][] array3D = new String[givenArrays.length][][];
+        Object[][][] array3D = new Object[givenArrays.length][][];
 
         // In order to make each sub array proportional, we need to keep track of the factors of each given array
         int[] factors;
