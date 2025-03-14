@@ -33,10 +33,14 @@ public class DegreePlanner_3DArray_RobinLane
     {
         // Get the largest size of each dimension, for use in the following print call
         int[] dim = getLargestDimensions3D(array3D);
+
+        //Get the size of the array, for use in the following print call
+        int size = getJagged3DArraySize(array3D);
+
         /* Tells the user information about the 3D array that is about to be printed,
            including the type of array, the length of each dimension of the array,
            and the total amount of items stored in the array */
-        System.out.printf("Printing data... from one 3D %s[%d][%d][%d] array containing [n] items:\n", (array3D.getClass().getSimpleName() + "\b".repeat(6)), dim[0], dim[1], dim[2]);
+        System.out.printf("Printing data... from one 3D %s[%d][%d][%d] array containing %d items:\n", (array3D.getClass().getSimpleName() + "\b".repeat(6)), dim[0], dim[1], dim[2], size);
 
         for(int i = 0; i < array3D.length; i++) // For each 2D array
         {
@@ -47,6 +51,18 @@ public class DegreePlanner_3DArray_RobinLane
                     System.out.printf("%s%s ", array3D[i][j][k], ((j+1 == array3D[i].length) && (k+1 == array3D[i][j].length)) ? "" : ",");
             System.out.println(); // Go to next line for next 2D array
         }
+    }
+
+    // Gets the size of a 3D array, even if it is jagged
+    static int getJagged3DArraySize(Object[][][] array3D)
+    {
+        int length = 0;
+
+        for(Object[][] array2D : array3D)
+            for(Object[] array : array2D)
+                length += array.length;
+
+        return length;
     }
 
     // Returns the largest size for each dimension in a 3D array
