@@ -26,6 +26,27 @@ public class DegreePlanner_3DArray_RobinLane
         String[][][] classes = load3DArray(semester01, semester02, semester03, semester04);
     }
 
+    // Prints a given 3D array to the console with each line labeled with the given context
+    static void display3DArray(Object[][][] array3D, String context)
+    {
+        // Shorthand variables x y and z defined solely for ease of reading line 36
+        int x = array3D.length, y = array3D[0].length, z = array3D[0][0].length;
+        /* Tells the user information about the 3D array that is about to be printed,
+           including the type of array, the length of each dimension of the array,
+           and the total amount of items stored in the array */
+        System.out.printf("Printing data... from one 3D %s[%d][%d][%d] array containing %d items:\n", (array3D.getClass().getSimpleName() + "\b".repeat(6)), x, y, z, x*y*z);
+
+        for(int i = 0; i < array3D.length; i++) // For each 2D array
+        {
+            System.out.printf(" - %s #%d: ", context, i + 1); // Label each row with context and index
+            for (int j = 0; j < array3D[i].length; j++) // For each 1D array
+                for(int k = 0; k < array3D[i][j].length; k++) // For each object
+                    // Print the object, followed by a comma only if the current object isn't the last one in the 2D array
+                    System.out.printf("%s%s ", array3D[i][j][k], ((j+1 == array3D[i].length) && (k+1 == array3D[i][j].length)) ? "" : ",");
+            System.out.println(); // Go to next line for next 2D array
+        }
+    }
+
     // Takes some number of given arrays and returns a 3D array that stores the contents of the given arrays
     /* The length of the 3D array is equal to the number of arrays given.
        The length of each 2D array stored in the 3D array, as well as each 1D array stored in each 2D array,
