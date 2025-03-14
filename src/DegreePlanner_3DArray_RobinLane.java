@@ -2,7 +2,7 @@
  *
  * File: DegreePlanner_3DArray_RobinLane.java
  * By: Robin Lane
- * Date: 03-13-2025
+ * Date: 03-14-2025
  *
  * Description: Defines 4 1D arrays of Strings (representing a students
  *              classes for each semester), Then loads all of those
@@ -10,8 +10,6 @@
  *              string to the console.
  *
  *********************************************************************/
-
-import java.util.ArrayList;
 
 public class DegreePlanner_3DArray_RobinLane
 {
@@ -94,17 +92,17 @@ public class DegreePlanner_3DArray_RobinLane
         String[][][] array3D = new String[givenArrays.length][][];
 
         // In order to make each sub array proportional, we need to keep track of the factors of each given array
-        ArrayList<Integer> factors;
+        int[] factors;
 
         // Iterates through each 2D Array (and given array, as there are an equal number of them)
         for(int i = 0; i < array3D.length; i++)
         {
-            //First get the first two factors of the given arrays length
-            factors = getSmallestFactors(givenArrays[i].length, 2);
-            /* The dimensions of the current 2D array are the first two factors of the current given
+            //First get the first factor pair of the given arrays length
+            factors = getFirstFactorPair(givenArrays[i].length);
+            /* The dimensions of the current 2D array are the first factor pair of the current given
                array multiplied together (which equals the length of the given array, thus there is one
                index in the 2D array for each index in the given array)*/
-            array3D[i] = new String[factors.get(1)][factors.get(0)];
+            array3D[i] = new String[factors[1]][factors[0]];
 
             // Iterate through each index in the current 2D array
             for(int j = 0; j < array3D[i].length; j++)
@@ -116,20 +114,27 @@ public class DegreePlanner_3DArray_RobinLane
         return array3D;
     }
 
-    // Takes some number n, and returns the first 'numFactors' amount of factors of n
-    static ArrayList<Integer> getSmallestFactors(int n, int numFactors)
+    // Gets the first non-trivial factor pair of some number n
+    // (a trivial factor pair is 1*n)
+    static int[] getFirstFactorPair(int n)
     {
-        ArrayList<Integer> factors = new ArrayList<>(); // variably sized list of factors
+        int[] factors = new int[2];
 
-        // Loop starts at 2 and ends just before n to avoid tracking the trivial factors of 1 and itself
-        for(int i = 2; i < n; i++) // For each number between 1 and n (exclusive)
+        //starts at two to avoid checking 1 (n % 1 will always be true)
+        /* If each checked number less than n does not divide n evenly, than that means the number is prime
+           In this case, the lop than checks if n is divisible by n, which is always true. Thus, the method will
+           return the trivial factor pair. This is intentional, as the only factors of a prime number are it's
+           trivial factors. */
+        for(int i = 2; i <= n; i++)
         {
-            if(n % i == 0) // If n is divisible by that number, store it
-                factors.add(i);
-
-            if(factors.size() == numFactors) // Once you've stored the requested number of factors, stop counting
+            if(n % i == 0)
+            {
+                factors[0] = i; // the first factor is the smallest number that evenly divides n
                 break;
+            }
         }
+
+        factors[1] = n/factors[0]; //the second factor is the number that, when multiplied with the first factor, equals n
 
         return factors;
     }
