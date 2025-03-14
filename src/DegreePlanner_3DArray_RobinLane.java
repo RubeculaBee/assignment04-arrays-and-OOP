@@ -24,6 +24,8 @@ public class DegreePlanner_3DArray_RobinLane
         String[] semester04 = {"csc401", "csc402", "csc403", "csc404", "csc405", "csc406"};
 
         String[][][] classes = load3DArray(semester01, semester02, semester03, semester04);
+
+        display3DArray(classes, "Semester");
     }
 
     // Prints a given 3D array to the console with each line labeled with the given context
