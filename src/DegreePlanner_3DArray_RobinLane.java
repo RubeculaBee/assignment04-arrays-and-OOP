@@ -102,7 +102,7 @@ public class DegreePlanner_3DArray_RobinLane
             /* The dimensions of the current 2D array are the first factor pair of the current given
                array multiplied together (which equals the length of the given array, thus there is one
                index in the 2D array for each index in the given array)*/
-            array3D[i] = new String[factors[1]][factors[0]];
+            array3D[i] = new Object[factors[1]][factors[0]];
 
             // Iterate through each index in the current 2D array
             for(int j = 0; j < array3D[i].length; j++)
