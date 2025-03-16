@@ -37,7 +37,7 @@ public class DegreePlanner_3DArray_RobinLane
         /* Tells the user information about the 3D array that is about to be printed,
            including the type of array, the length of each dimension of the array,
            and the total amount of items stored in the array */
-        System.out.printf("Printing data... from one 3D %s[%d][%d][%d] array containing %d items:\n", (array3D.getClass().getSimpleName() + "\b".repeat(6)), dim[0], dim[1], dim[2], size);
+        System.out.printf("Printing data... from one 3D %s[%d][%d][%d] array containing %d items:\n", get3DArrayType(array3D).getSimpleName(), dim[0], dim[1], dim[2], size);
 
         for(int i = 0; i < array3D.length; i++) // For each 2D array
         {
@@ -137,5 +137,24 @@ public class DegreePlanner_3DArray_RobinLane
         factors[1] = n/factors[0]; //the second factor is the number that, when multiplied with the first factor, equals n
 
         return factors;
+    }
+
+    // Takes a 3D array and returns the type of the objects within
+    static Class<?> get3DArrayType(Object[][][] array3D)
+    {
+        // Get the class of the first 1D array, to be used for comparison
+        Class<?> type = array3D[0][0].getClass();
+
+        // For each 2D array
+        for(Object[][] array2D : array3D)
+            // For each 1D array
+            for(Object[] array : array2D)
+                // If the class of the 1D array is different from the first array
+                if(!array.getClass().equals(type))
+                    // Return the Object Class
+                    return Object.class;
+
+        // If every Element of the array is of the same type, return that type
+        return array3D[0][0][0].getClass();
     }
 }
