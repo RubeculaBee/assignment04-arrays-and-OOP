@@ -74,7 +74,7 @@ public class Array_2D_MultipleDataTypes_RobinLane
     //takes a 2D array of objects and prints a table of each element's value
     static void displayDataValueTable(Object[][] array2D)
     {
-        System.out.println("- Data Value Table:");
+        System.out.println("- Data Value View:");
         for (Object[] row : array2D)
         {
             System.out.printf("%15s", ""); // spaces for alignment
