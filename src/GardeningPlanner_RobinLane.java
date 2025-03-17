@@ -110,8 +110,8 @@ public class GardeningPlanner_RobinLane
         for(int i=0; i<avgTemp.length; i++)
             // Format string for plant growth contains a + sign, so that the sign of the value is always printed
             // Format string for plant height has width 4 to make room for MAX label
-            System.out.printf("%-14d %-14s %-14d %-14d %+-14d %-4d %-7s\n"
-                    , i, months[i], avgTemp[i], avgRain[i], plantGrowth[i], plantHeight[i], plantHeight[i] == maxHeight? "\033[103;30mMAX\033[0m" : "");
+            System.out.printf("%2d %12s %-14s %-14d %-14d %+-14d %-4d %-7s\n"
+                    , i, " ", months[i], avgTemp[i], avgRain[i], plantGrowth[i], plantHeight[i], plantHeight[i] == maxHeight? "\033[103;30mMAX\033[0m" : "");
 
         System.out.println(("-".repeat(14) + " ").repeat(6));
     }
