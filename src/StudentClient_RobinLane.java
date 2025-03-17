@@ -58,9 +58,9 @@ public class StudentClient_RobinLane {
     {
         Scanner input = new Scanner(System.in);
 
-        System.out.printf("- Enter a name for student #%d: ", index);
+        System.out.printf(" - Enter a name for student #%d: ", index);
         student.setName(input.nextLine());
-        System.out.printf("- Enter a GPA for student #%d: ", index);
+        System.out.printf(" - Enter a GPA for student #%d:  ", index);
         student.setGpa(input.nextDouble());
         System.out.print("\n");
     }
@@ -83,9 +83,9 @@ public class StudentClient_RobinLane {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("[-] Enter new student name: ");
+        System.out.print("[-] Enter new student name:  ");
         student.setName(input.nextLine());
-        System.out.print("[-] Enter new student gpa: ");
+        System.out.print("[-] Enter new student gpa:   ");
         student.setGpa(input.nextDouble());
     }
 }
